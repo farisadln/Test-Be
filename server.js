@@ -15,14 +15,11 @@ const fs = require('fs')
     
 
 
-//convert decimal to binary
 app.get('/decimaltobinary', (req, res) => {
 
     
     const data = req.query.value;
-    // console.log(data2);
 
-    // decimal to binary
     convertBase.dec2bin = convertBase(10, 2);
     // console.log(convertBase.dec2bin(data));
      
@@ -46,13 +43,11 @@ app.get('/decimaltobinary', (req, res) => {
 
 })
 
-//start convert binary to decimal
 app.get('/binarytodecimal', (req, res) => {
 
     
     const data = req.query.value;
 
-    // binary to decimal
     convertBase.bin2dec = convertBase(2, 10);
     // console.log(convertBase.bin2dec(data));
      
