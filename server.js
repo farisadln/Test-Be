@@ -10,9 +10,6 @@ app.get('/', (req, res) => res.send('Server Running!'))
 app.listen(port, 
     () => console.log(`Simple Express app listening on port ${port}!`))
 
-const jwt = require('jsonwebtoken');
-const fs = require('fs')
-    
 
 
 app.get('/decimaltobinary', (req, res) => {
@@ -71,3 +68,32 @@ app.get('/binarytodecimal', (req, res) => {
 
 })
 
+
+app.get('/palindrome', (req, res) => {
+
+
+
+    function findPalindromes(str, min) {
+        min = min || 3;
+        var result = [];
+        var reg = str.toLowerCase();
+        var reg = reg.replace(/[^a-z]/g, '');
+        var rev = reg.split("").reverse().join("");
+        var l = reg.length;
+        for (var i = 0; i < l; i++) {
+          for (var j = i + min; j <= l; j++) {
+            var regs = reg.substring(i, j);
+            var revs = rev.substring(l - j, l - i);
+            if (regs == revs) {
+              result.push(regs);
+            }
+          }
+        }
+        return result;
+      }
+      
+      res.json("test aja")
+      var paragraph1 = "aku suka makan nasi";
+      console.log(paragraph1, findPalindromes(paragraph1)[0]);
+      
+})
